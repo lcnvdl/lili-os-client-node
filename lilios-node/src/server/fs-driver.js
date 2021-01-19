@@ -28,9 +28,10 @@ class FsDriver {
 
   _toIFile(pth) {
     const stats = fs.statSync(pth);
+    const normalized = path.normalize(pth).split("\\").join("/");
 
     const dto = {
-      path: pth,
+      path: normalized,
       icon: null,
       size: stats.size,
       security: {
